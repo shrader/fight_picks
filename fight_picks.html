@@ -32,7 +32,7 @@
     </ul>
     {{/with}}
     <br>
-    <button id='save-button' > Save </button>  
+    <button class="btn btn-default" id='save-button' > Save </button>  
   </div>
 </template>
 
@@ -44,45 +44,65 @@
   <div class="fighter-2">
     <img src="{{fighter2.pic}}" class="fighter-pic" />
   </div>  -->
-  <div class="slections btn-group" data-toggle="buttons" >
-    <p> Who do you think will win fight {{fightNumber}} ?
+  <div class="slections btn-group form-group well" data-toggle="buttons" >
+    <h2> Who do you think will win fight {{fightNumber}} ?
       <br>
-      <label class="btn btn-primary active">
+      <label class="btn btn-default active">
     <input type="radio" name="winner" value="{{fighter1}}" />
     {{fighter1}}
       </label>
-      <label class="btn btn-primary active">
+      <label class="btn btn-default active">
     <input type="radio" name="winner" value="{{fighter2}}" />
     {{fighter2}}
       </label>
-    </p>
+    </h2>
       <br>
-    <p> Finish Type?
+    <h2> Finish Type?
       <br>
+      <label class="btn btn-default active">
     <input type="radio" name="finish" value="DEC" /> 
     Decision
+      </label>
+      <label class="btn btn-default active">
     <input type="radio" name="finish" value="KO/TKO" />
     KO/TKO
+      </label>
+      <label class="btn btn-default active">
     <input type="radio" name="finish" value="SUB" />
     Submission
+      </label>
+      <label class="btn btn-default active">
     <input type="radio" name="finish" value="Null" />
     No Guess
-    </p>
+      </label>
+    </h2>
       <br>
-    <p> Round?
+    <h2> Round?
       <br>
+      <label class="btn btn-default active">
       <input type="radio" name="rd" value="1" />
       Round 1 
+      </label>
+      <label class="btn btn-default active">
       <input type="radio" name="rd" value="2" />
       Round 2 
+      </label>
+      <label class="btn btn-default active">
       <input type="radio" name="rd" value="3" />
       Round 3
+      </label>
+      <label class="btn btn-default active">
       <input type="radio" name="rd" value="4" />
       Round 4 
+      </label>
+      <label class="btn btn-default active">
       <input type="radio" name="rd" value="5" />
       Round 5
+      </label>
+      <label class="btn btn-default active">
       <input type="radio" name="rd" value="Null" />
       No Guess
-    </p>
-  </div>  
+      </label>
+    </h2>
+  </div> 
 </template>
