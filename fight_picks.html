@@ -3,12 +3,12 @@
 </head>
 
 <body>
-  <h1>UFC Fight Picks Game!</h1>
+  <h1 class="white-txt">UFC Fight Picks Game!</h1>
   {{> main}}
 </body>
 
 <template name="main">
-    <h2> Choose an event </h2>
+    <h2 class="white-txt"> Choose an event </h2>
     <select name="event-select" id="eventSelection">
      <option value="null" >    </option>
       {{#each events}}
@@ -16,7 +16,8 @@
       {{/each}}
     </select>  
   <div class="main-container">
-    <h1>Pick Your Fights! </h1>
+    <h1 class="white-txt">Pick Your Fights! </h1>
+    <br>
     {{> pickArea}}  
   </div>
 </template>
@@ -31,7 +32,6 @@
     {{/each}}
     </ul>
     {{/with}}
-    <br>
     <button class="btn btn-default btn-lg" id='save-button' > Save </button>  
   </div>
 </template>
