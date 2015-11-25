@@ -3,19 +3,20 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>UFC Fight Picks Game!</h1>
   {{> main}}
 </body>
 
 <template name="main">
-    <p> Choose an event </p>
+    <h2> Choose an event </h2>
     <select name="event-select" id="eventSelection">
+     <option value="null" >    </option>
       {{#each events}}
       <option value="{{_id}}" {{isSelected}} >{{event}}</option>
       {{/each}}
     </select>  
   <div class="main-container">
-    <h1>UFC Fight Picks Game! </h1>
+    <h1>Pick Your Fights! </h1>
     {{> pickArea}}  
   </div>
 </template>
@@ -26,6 +27,7 @@
     <ul id='fights'>
     {{#each fights}}
       <li>{{> fightData}}</li>
+      <br>
     {{/each}}
     </ul>
     {{/with}}
@@ -42,13 +44,17 @@
   <div class="fighter-2">
     <img src="{{fighter2.pic}}" class="fighter-pic" />
   </div>  -->
-  <div class="slections">
+  <div class="slections btn-group" data-toggle="buttons" >
     <p> Who do you think will win fight {{fightNumber}} ?
       <br>
-    <input type="radio" name="winner" value="{{fighter1}}" checked/>
+      <label class="btn btn-primary active">
+    <input type="radio" name="winner" value="{{fighter1}}" />
     {{fighter1}}
+      </label>
+      <label class="btn btn-primary active">
     <input type="radio" name="winner" value="{{fighter2}}" />
     {{fighter2}}
+      </label>
     </p>
       <br>
     <p> Finish Type?
@@ -59,7 +65,7 @@
     KO/TKO
     <input type="radio" name="finish" value="SUB" />
     Submission
-    <input type="radio" name="finish" value="Null" checked/>
+    <input type="radio" name="finish" value="Null" />
     No Guess
     </p>
       <br>
@@ -75,7 +81,7 @@
       Round 4 
       <input type="radio" name="rd" value="5" />
       Round 5
-      <input type="radio" name="rd" value="Null" checked/>
+      <input type="radio" name="rd" value="Null" />
       No Guess
     </p>
   </div>  

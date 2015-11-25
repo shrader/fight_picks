@@ -63,10 +63,11 @@ Template.pickArea.events({
        finish:finishChoice, 
        round:rdChoice
        });
-         
+     alert("Your picks have been saved!");    
      });
   }
 });
+
 
 
 }
