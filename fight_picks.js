@@ -47,7 +47,7 @@ Template.pickArea.helpers({
 
 Template.pickArea.events({
   'click #save-button': function (event, template) {
-    $('#fights').each(function() {
+    $('.fight-item').each(function() {
      
      var currentFight = fights.fightNumber; //might be wrong  
      var selectedEvent = Session.get('selectedEvents'); //dropdown selection (again not sure if done correctly)
@@ -62,9 +62,9 @@ Template.pickArea.events({
        fighter:fighterChoice, 
        finish:finishChoice, 
        round:rdChoice
-       });
-     alert("Your picks have been saved!");    
+       });   
      });
+     alert("Your picks have been saved!");
   }
 });
 
