@@ -10,7 +10,7 @@
 <template name="main">
     <h2 class="white-txt"> Choose an event </h2>
     <select name="event-select" id="eventSelection">
-     <option value="null" >    </option>
+     <option value="null" > Events: </option>
       {{#each events}}
       <option value="{{_id}}" {{isSelected}} >{{event}}</option>
       {{/each}}
@@ -32,7 +32,7 @@
     {{/each}}
     </ul>
     {{/with}}
-    <button class="btn btn-default btn-lg" id='save-button' > Save </button>  
+    <button class="btn btn-default btn-lg" id='save-button' ><b> Save </b></button>  
   </div>
 </template>
 
@@ -82,30 +82,53 @@
     <h2> Round?
       <br>
       <br>
-      <label class="btn btn-default active">
-      <input type="radio" name="rd" value="1" />
-      Round 1 
-      </label>
-      <label class="btn btn-default active">
-      <input type="radio" name="rd" value="2" />
-      Round 2 
-      </label>
-      <label class="btn btn-default active">
-      <input type="radio" name="rd" value="3" />
-      Round 3
-      </label>
-      <label class="btn btn-default active">
-      <input type="radio" name="rd" value="4" />
-      Round 4 
-      </label>
-      <label class="btn btn-default active">
-      <input type="radio" name="rd" value="5" />
-      Round 5
-      </label>
-      <label class="btn btn-default active">
-      <input type="radio" name="rd" value="Null" />
-      No Guess
-      </label>
+     {{> rounds3}}
     </h2>
   </div> 
+</template>
+
+<template name='rounds5' >
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="1" />
+      Round 1 
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="2" />
+      Round 2 
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="3" />
+      Round 3
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="4" />
+      Round 4 
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="5" />
+      Round 5
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="Null" />
+      No Guess
+    </label>
+</template>
+
+<template name='rounds3' >
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="1" />
+      Round 1 
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="2" />
+      Round 2 
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="3" />
+      Round 3
+    </label>
+    <label class="btn btn-default active">
+      <input type="radio" name="rd" value="Null" />
+      No Guess
+    </label>
 </template>
