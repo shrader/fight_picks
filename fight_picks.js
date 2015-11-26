@@ -68,7 +68,11 @@ Template.pickArea.events({
   }
 });
 
-
+Template.fightData.helpers({
+  roundNum: function (rounds) {
+    return this.rounds === rounds;
+  }
+});
 
 }
 
