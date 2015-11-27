@@ -49,11 +49,11 @@
       <br>
       <br>
       <label class="btn btn-default active">
-    <input type="radio" name="winner" value="{{fighter1}}" />
+    <input type="radio" name="winner{{fightNumber}}" value="{{fighter1}}" />
     {{fighter1}}
       </label>
       <label class="btn btn-default active">
-    <input type="radio" name="winner" value="{{fighter2}}" />
+    <input type="radio" name="winner{{fightNumber}}" value="{{fighter2}}" />
     {{fighter2}}
       </label>
     </h2>
@@ -62,19 +62,19 @@
       <br>
       <br>
       <label class="btn btn-default active">
-    <input type="radio" name="finish" value="DEC" /> 
+    <input type="radio" name="finish{{fightNumber}}" value="DEC" /> 
     Decision
       </label>
       <label class="btn btn-default active">
-    <input type="radio" name="finish" value="KO/TKO" />
+    <input type="radio" name="finish{{fightNumber}}" value="KO/TKO" />
     KO/TKO
       </label>
       <label class="btn btn-default active">
-    <input type="radio" name="finish" value="SUB" />
+    <input type="radio" name="finish{{fightNumber}}" value="SUB" />
     Submission
       </label>
       <label class="btn btn-default active">
-    <input type="radio" name="finish" value="Null" />
+    <input type="radio" name="finish{{fightNumber}}" value="Null" />
     No Guess
       </label>
     </h2>
@@ -93,46 +93,46 @@
 
 <template name='rounds5' >
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="1" />
+      <input type="radio" name="rd{{fightNumber}}" value="1" />
       Round 1 
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="2" />
+      <input type="radio" name="rd{{fightNumber}}" value="2" />
       Round 2 
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="3" />
+      <input type="radio" name="rd{{fightNumber}}" value="3" />
       Round 3
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="4" />
+      <input type="radio" name="rd{{fightNumber}}" value="4" />
       Round 4 
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="5" />
+      <input type="radio" name="rd{{fightNumber}}" value="5" />
       Round 5
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="Null" />
+      <input type="radio" name="rd{{fightNumber}}" value="Null" />
       No Guess
     </label>
 </template>
 
 <template name='rounds3' >
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="1" />
+      <input type="radio" name="rd{{fightNumber}}" value="1" />
       Round 1 
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="2" />
+      <input type="radio" name="rd{{fightNumber}}" value="2" />
       Round 2 
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="3" />
+      <input type="radio" name="rd{{fightNumber}}" value="3" />
       Round 3
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="rd" value="Null" />
+      <input type="radio" name="rd{{fightNumber}}" value="Null" />
       No Guess
     </label>
 </template>
