@@ -4,7 +4,9 @@ Events = new Mongo.Collection('events');
 Picks = new Mongo.Collection('picks');
 
 if (Meteor.isClient) {
-  
+
+//Tells the console when the selected event changes and
+//shows the _id of the selection  
 Tracker.autorun(function () {
   console.log('The selectedEvent ID is: ' +
     Session.get('selectedEvents')
@@ -41,16 +43,17 @@ Template.pickArea.helpers({
     return Events.findOne({
       _id: Session.get('selectedEvents')
     });
-    console.log("This worked.. recieved " + Session.get('selectedEvents') );
   }
 });
 
+/*event listener for save button loops through list items
+ and saves the selections to the picks collection */
 Template.pickArea.events({
   'click #save-button': function (event, template) {
     $('.fight-item').each(function() {
      
-     var currentFight = fights.fightNumber; //might be wrong  
-     var selectedEvent = Session.get('selectedEvents'); //dropdown selection (again not sure if done correctly)
+     var currentFight = fights.fightNumber; //this doesnt work, needs to be changed  
+     var selectedEvent = Session.get('selectedEvents'); //dropdown selection, need to change (saves the _id not the event name)
      var fighterChoice = $('input[name="winner"]:checked').val()
      var finishChoice = $('input[name="finish"]:checked').val();
      var rdChoice = $('input[name="rd"]:checked').val();
@@ -68,6 +71,9 @@ Template.pickArea.events({
   }
 });
 
+/*gets the round value for this fight, and compares it
+to the argument given in the block helper and returns
+ true or false  */
 Template.fightData.helpers({
   roundNum: function (rounds) {
     return this.rounds === rounds;
