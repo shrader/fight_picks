@@ -90,6 +90,7 @@ Template.pickArea.events({
       ]
      });   
      alert("Your picks have been saved!");
+     $('input[type=radio]').attr('checked',false);
   }
 });
 
