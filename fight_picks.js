@@ -75,7 +75,7 @@ Template.pickArea.events({
        finish:$('input[name="finish3"]:checked').val(), 
        round:$('input[name="rd3"]:checked').val()
       },
-      {, 
+      { 
        fightNumber:4,
        fighter:$('input[name="winner4"]:checked').val(), 
        finish:$('input[name="finish4"]:checked').val(), 
@@ -90,6 +90,7 @@ Template.pickArea.events({
       ]
      });   
      alert("Your picks have been saved!");
+     $('input[type=radio]').attr('checked',false);
   }
 });
 
