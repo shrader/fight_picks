@@ -103,6 +103,10 @@ Template.fightData.helpers({
   }
 });
 
+Accounts.ui.config({
+  passwordSignupFields: 'USERNAME_ONLY'
+});
+
 }
 
 if (Meteor.isServer) {
