@@ -50,23 +50,45 @@ Template.pickArea.helpers({
  and saves the selections to the picks collection */
 Template.pickArea.events({
   'click #save-button': function (event, template) {
-    $('.fight-item').each(function() {
-     
-     var currentFight = fights.fightNumber; //this doesnt work, needs to be changed  
+      
      var selectedEvent = Session.get('selectedEvents'); //dropdown selection, need to change (saves the _id not the event name)
-     var fighterChoice = $('input[name="winner"]:checked').val()
-     var finishChoice = $('input[name="finish"]:checked').val();
-     var rdChoice = $('input[name="rd"]:checked').val();
      
      Picks.insert({
        user_ID:user, 
-       event:selectedEvent, 
-       fightNumber:currentFight, 
-       fighter:fighterChoice, 
-       finish:finishChoice, 
-       round:rdChoice
-       });   
-     });
+       event:selectedEvent,
+       fights:[
+      { 
+       fightNumber:1,
+       fighter:$('input[name="winner1"]:checked').val(), 
+       finish:$('input[name="finish1"]:checked').val(), 
+       round:$('input[name="rd1"]:checked').val()
+      },
+      { 
+       fightNumber:2,
+       fighter:$('input[name="winner2"]:checked').val(), 
+       finish:$('input[name="finish2"]:checked').val(), 
+       round:$('input[name="rd2"]:checked').val() 
+      },
+      { 
+       fightNumber:3,
+       fighter:$('input[name="winner3"]:checked').val(), 
+       finish:$('input[name="finish3"]:checked').val(), 
+       round:$('input[name="rd3"]:checked').val()
+      },
+      {, 
+       fightNumber:4,
+       fighter:$('input[name="winner4"]:checked').val(), 
+       finish:$('input[name="finish4"]:checked').val(), 
+       round:$('input[name="rd4"]:checked').val()
+      },
+      {  
+       fightNumber:5,
+       fighter:$('input[name="winner5"]:checked').val(), 
+       finish:$('input[name="finish5"]:checked').val(), 
+       round:$('input[name="rd5"]:checked').val()
+      }
+      ]
+     });   
      alert("Your picks have been saved!");
   }
 });
