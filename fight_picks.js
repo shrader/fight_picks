@@ -20,8 +20,10 @@ Tracker.autorun(function () {
     Session.get('selectedEvents')
   );
 });  
-  
-var user = Meteor.userId(); //Just for testing purposes, will be replaced with actual user
+ 
+//logged in user _id  
+var user = Meteor.userId();
+
 
 //get list of events to pick from (from Events Collection)
 //save selection in Session object
@@ -98,7 +100,7 @@ var fightPicks = {
       }
       ]};   
       
-      Meteor.call('savePicks', {event:selectedEvent}, fightPicks);
+      Meteor.call('savePicks', {event:selectedEvent, user_ID:user}, fightPicks);
       
      alert("Your picks have been saved!");
      $('input[type=radio]').attr('checked',false);
