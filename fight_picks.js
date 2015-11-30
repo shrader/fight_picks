@@ -3,6 +3,14 @@ Results = new Mongo.Collection('results');
 Events = new Mongo.Collection('events');
 Picks = new Mongo.Collection('picks');
 
+//wrapped upsert method
+ Meteor.methods({
+  savePicks: function( id, doc ){
+     Picks.upsert( id, doc );
+  }
+});
+
+
 if (Meteor.isClient) {
 
 //Tells the console when the selected event changes and
@@ -13,7 +21,7 @@ Tracker.autorun(function () {
   );
 });  
   
-var user = "John"; //Just for testing purposes, will be replaced with actual user
+var user = Meteor.userId(); //Just for testing purposes, will be replaced with actual user
 
 //get list of events to pick from (from Events Collection)
 //save selection in Session object
@@ -46,14 +54,15 @@ Template.pickArea.helpers({
   }
 });
 
-/*event listener for save button loops through list items
- and saves the selections to the picks collection */
+/*event listener for save button,
+ saves the selections to the picks collection */
 Template.pickArea.events({
   'click #save-button': function (event, template) {
       
-     var selectedEvent = Session.get('selectedEvents'); //dropdown selection, need to change (saves the _id not the event name)
-     
-     Picks.insert({
+     var selectedEvent = Session.get('selectedEvents'); 
+          
+       
+var fightPicks = {
        user_ID:user, 
        event:selectedEvent,
        fights:[
@@ -87,12 +96,13 @@ Template.pickArea.events({
        finish:$('input[name="finish5"]:checked').val(), 
        round:$('input[name="rd5"]:checked').val()
       }
-      ]
-     });   
+      ]};   
+      
+      Meteor.call('savePicks', {event:selectedEvent}, fightPicks);
+      
      alert("Your picks have been saved!");
      $('input[type=radio]').attr('checked',false);
-  }
-});
+}});
 
 /*gets the round value for this fight, and compares it
 to the argument given in the block helper and returns
@@ -118,6 +128,7 @@ if (Meteor.isServer) {
     Picks.remove({});
     
     Events.insert({
+      _id: 'UFC 193',
       event: 'UFC 193',
       fights:[
         {
@@ -154,6 +165,7 @@ if (Meteor.isServer) {
     });
     
     Events.insert({
+      _id: 'UFC 194',
       event: 'UFC 194',
       fights:[
         {
@@ -190,4 +202,5 @@ if (Meteor.isServer) {
     });
     
   });
+
 }
