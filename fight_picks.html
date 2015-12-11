@@ -23,7 +23,8 @@
   <div class="main-container">
     <h1 class="white-txt"><b>Pick Your Fights! </b></h1>
     <br>
-  {{#if currentUser}}  
+<!-- if no user is logged in hide choices  -->
+  {{#if currentUser}}
     {{> pickArea}}  
   {{/if}}  
   </div>

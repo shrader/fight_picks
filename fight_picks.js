@@ -21,9 +21,12 @@ Tracker.autorun(function () {
   );
 });  
  
-//logged in user _id  
+/* set a user definition so it doesnt break
+when no user is signed in */
 var user = undefined
 
+/*change user variable to the current user when someone
+logs in */
 Accounts.onLogin(function () {
   user = Meteor.user(Meteor.userId()).username;
 });
@@ -210,5 +213,10 @@ if (Meteor.isServer) {
     });
     
   });
+  
+Accounts.onCreateUser(function (user) {
+  user.profile.score = 0;
+  return user;
+});
 
 }
