@@ -22,8 +22,11 @@ Tracker.autorun(function () {
 });  
  
 //logged in user _id  
-var user = Meteor.userId();
+var user = undefined
 
+Accounts.onLogin(function () {
+  user = Meteor.user(Meteor.userId()).username;
+});
 
 //get list of events to pick from (from Events Collection)
 //save selection in Session object
@@ -44,6 +47,9 @@ Template.main.helpers({
 Template.main.events = {
   'change #eventSelection': function (evt) {
     Session.set('selectedEvents', evt.currentTarget.value);
+    if (Meteor.userId() === null) {
+      alert("You must be logged in to make your picks!");
+    }
   }
 };
 
@@ -106,7 +112,7 @@ var fightPicks = {
      $('input[type=radio]').attr('checked',false);
 }});
 
-/*gets the round value for this fight, and compares it
+/*gets the round# value for this fight, and compares it
 to the argument given in the block helper and returns
  true or false  */
 Template.fightData.helpers({
@@ -116,7 +122,7 @@ Template.fightData.helpers({
 });
 
 Accounts.ui.config({
-  passwordSignupFields: 'USERNAME_ONLY'
+  passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
 
 }
