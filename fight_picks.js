@@ -7,6 +7,9 @@ Picks = new Mongo.Collection('picks');
  Meteor.methods({
   savePicks: function( id, doc ){
      Picks.upsert( id, doc );
+  },
+  saveResults: function( id, doc ){
+    Results.upsert( id, doc );
   }
 });
 
@@ -109,9 +112,16 @@ var fightPicks = {
       }
       ]};   
       
-      Meteor.call('savePicks', {event:selectedEvent, user_ID:user}, fightPicks);
       
-     alert("Your picks have been saved!");
+      
+     if (user === "admin") {
+       Meteor.call('saveResults', {event:selectedEvent, user_ID:user}, fightPicks);
+       alert("Your results have been saved!");
+     } else {
+         Meteor.call('savePicks', {event:selectedEvent, user_ID:user}, fightPicks);
+         alert("Your picks have been saved!");
+     }
+     
      $('input[type=radio]').attr('checked',false);
 }});
 
